@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AMARA — Reviews</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rose-bg: #f7f3f5;
+      --rose-soft: #d7a6b3;
+      --rose-dark: #b66b84;
+      --green-dark: #143230;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      background: var(--rose-bg);
+      color: var(--green-dark);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* ⭐⭐⭐ HEADER CSS ⭐⭐⭐ */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: linear-gradient(to right, #EDC1D2, #C3C3C3);
+    }
+
+    .logo-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-box img {
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+    }
+
+    header h2 {
+        font-family: 'Cormorant', serif;
+        margin: 0;
+        font-size: 28px;
+        color: var(--green-dark);
+    }
+    
+    nav {
+        text-align: left; 
+        margin-right: auto;
+        margin-left: 30px; 
+    }
+
+    header nav a {
+        margin: 0 15px; 
+        text-decoration: none;
+        color: var(--green-dark);
+        font-weight: 600; 
+        font-size: 17px;
+        font-family: 'Lato', sans-serif;
+        transition: color 0.3s, border-bottom 0.3s;
+        padding-bottom: 3px;
+    }
+
+    header nav a:hover {
+        color: var(--rose-dark); 
+        border-bottom: 2px solid var(--rose-dark); 
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .auth-buttons a {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: 0.3s;
+        white-space: nowrap;
+    }
+
+    .btn-primary {
+        background-color: var(--green-dark);
+        color: white !important;
+        border: 2px solid var(--green-dark);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        color: var(--green-dark) !important;
+        border: 2px solid var(--green-dark);
+    }
+
+    .btn-admin {
+        background-color: transparent;
+        color: var(--rose-dark) !important;
+        border: 2px solid var(--rose-dark);
+    }
+
+    /* TITLE SECTION */
+    .title-box {
+      text-align: center;
+      margin: 40px 0 10px;
+    }
+
+    .quote-icon {
+      font-size: 60px;
+      color: #bbbbbb;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #444;
+      font-family: 'Lato', sans-serif;
+      margin-top: -10px;
+    }
+
+    h1 {
+      font-family: 'Cormorant', serif;
+      font-size: 40px;
+      margin-top: 5px;
+      color: var(--green-dark);
+    }
+
+    /* WRITE REVIEW FORM SECTION */
+    .write-review-container {
+        width: 80%;
+        max-width: 600px;
+        margin: 40px auto;
+        background: var(--white);
+        padding: 30px;
+        border-radius: 18px;
+        box-shadow: 0 4px 15px #00000015;
+    }
+
+    .write-review-container h2 {
+        font-family: 'Cormorant', serif;
+        font-size: 32px;
+        margin: 0 0 15px;
+        text-align: center;
+    }
+
+    .review-form label {
+        display: block;
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    .review-form textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        resize: vertical;
+    }
+    
+    .rating-stars {
+        display: flex;
+        gap: 2px;
+        font-size: 28px;
+        margin-bottom: 20px;
+        justify-content: center;
+        flex-direction: row-reverse; /* لعكس ترتيب النجوم برمجياً */
+    }
+
+    .rating-stars input { display: none; }
+
+    .rating-stars label {
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    
+    .rating-stars input:checked ~ label,
+    .rating-stars label:hover,
+    .rating-stars label:hover ~ label {
+        color: gold;
+    }
+
+    .submit-btn {
+        background-color: var(--green-dark);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 10px;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    /* REVIEWS LIST */
+    .reviews-container {
+      width: 80%;
+      max-width: 800px;
+      margin: 25px auto;
+    }
+
+    .review-card {
+      background: var(--white);
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px #00000015;
+      border-left: 6px solid var(--rose-dark);
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .customer-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .customer-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .review-content strong {
+      font-size: 18px;
+      color: var(--rose-dark);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .book-now-container { text-align: center; margin: 40px 0; }
+
+    .book-now-btn {
+      background-color: var(--green-dark);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer {
+      background: linear-gradient(to right, #143230, #536B53);
+      padding: 28px;
+      text-align: center;
+      color: var(--white);
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-box">
+        <img src="imgs/logo.png" alt="AMARA Logo">
+        <h2>AMARA</h2>
+    </div>
+    <nav>
+        <a href="Home-pega.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="ServicesPage.html">Services</a>
+        <a href="Appointments.html">Appointments</a>
+    </nav>
+    <div class="auth-buttons">
+        <a href="logIn.html" class="btn-outline">Log In</a>
+        <a href="signUp.html" class="btn-primary">Sign Up</a>
+        <a href="adminLogIn.html" class="btn-admin">Admin</a>
+    </div>
+  </header>
+
+  <div class="title-box">
+      <div class="quote-icon">❝</div>
+      <p class="subtitle">What our customers are saying</p>
+      <h1>Customer Reviews</h1>
+  </div>
+  
+  <div class="write-review-container">
+      <h2>Write Your Review</h2>
+      <form class="review-form" id="reviewForm">
+          
+          <div class="rating-stars">
+              <input type="radio" id="star5" name="rating" value="5" required>
+              <label for="star5">★</label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4">★</label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3">★</label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2">★</label>
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1">★</label>
+          </div>
+
+          <label for="reviewText">Your Comment:</label>
+          <textarea id="reviewText" rows="5" placeholder="Share your experience with AMARA Salon..." required></textarea>
+          
+          <button type="submit" class="submit-btn">Submit Review</button>
+      </form>
+  </div>
+
+  <div class="reviews-container">
+      <p style="text-align:center;">Loading reviews...</p>
+  </div>
+
+  <div class="book-now-container">
+      <a href="ServicesPage.html" class="book-now-btn">Book Your Appointment</a>
+  </div>
+
+  <footer>
+    © 2025 AMARA Salon — All Rights Reserved
+  </footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>

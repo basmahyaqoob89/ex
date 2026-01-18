@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMARA Beauty Salon</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* PAGE BACKGROUND - OMBRE */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #C3C3C3, #EDC1D2, #536B53, #143230);
+            color: #143230;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(to right, #EDC1D2, #C3C3C3);
+        }
+
+        /* LOGO BOX */
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-box img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        header h2 {
+            font-family: 'Cormorant', serif;
+            margin: 0;
+            font-size: 28px;
+            color: #143230;
+        }
+        
+        /* NAVIGATION CONTAINER - MODIFIED TO ALIGN WITH LOGO (PROBLEM FIXED) */
+        nav {
+            text-align: left; 
+            margin-right: auto; /* يدفع شريط التنقل لليسار */
+            margin-left: 30px; /* فصل بين اللوجو والروابط */
+        }
+
+        header nav a {
+            margin: 0 15px; 
+            text-decoration: none;
+            color: #143230;
+            font-weight: 600; 
+            font-size: 17px;
+            font-family: 'Lato', sans-serif;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 3px;
+        }
+
+        header nav a:hover {
+            color: #b66b84;  
+            border-bottom: 2px solid #b66b84; 
+        }
+
+        /* NEW HEADER BUTTON STYLES START */
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: #143230;
+            color: white !important;
+            border: 2px solid #143230;
+        }
+
+        .btn-primary:hover {
+            background-color: #536B53;
+            border-color: #536B53;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #143230 !important;
+            border: 2px solid #143230;
+        }
+
+        .btn-outline:hover {
+            background-color: #143230;
+            color: white !important;
+        }
+
+        .btn-admin {
+            background-color: transparent;
+            color: #b66b84 !important;
+            border: 2px solid #b66b84;
+        }
+
+        .btn-admin:hover {
+            background-color: #b66b84;
+            color: white !important;
+        }
+        /* NEW HEADER BUTTON STYLES END */
+
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 150px 20px;
+            background: linear-gradient(to bottom, #536B53, #143230);
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-family: 'Cormorant', serif;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+            color: #f2f2f2;
+        }
+
+        /* GIF STYLE */
+       .center-gif {
+            width: 420px;
+            height: auto;
+            border-radius: 16px;
+            margin: 30px auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        .hero button {
+            padding: 12px 35px;
+            border: 1px solid #fff;
+            background: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            display: flex;
+            gap: 40px;
+            padding: 70px;
+            background: #ffffffcc;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about img {
+            width: 220px;
+            height: 220px;
+            border-radius: 8px;
+        }
+
+        .about-text h2 {
+            font-family: 'Cormorant', serif;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .about-text p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .about button {
+            margin-top: 15px;
+            padding: 10px 25px;
+            border: 1px solid #143230;
+            background: none;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .about button:hover {
+            background-color: #143230;
+            color: white;
+        }
+
+        /* ---------------- SERVICES SECTION (FIXED) ---------------- */
+        .services {
+            padding: 60px 40px;
+            background: #ffffffd8;
+            text-align: center;
+        }
+
+        .services-title {
+            font-family: 'Cormorant', serif;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #143230;
+        }
+
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            cursor: pointer; 
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .service-card h3 {
+            margin-top: 12px;
+            font-family: 'Cormorant', serif;
+            font-size: 22px;
+            color: #143230;
+        }
+
+        /* REVIEW SECTION (Original code CSS) */
+        .carousel-section {
+            padding: 60px 20px;
+            background: #ffffffb0;
+        }
+
+        .carousel-wrap {
+            width: 100%;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .carousel-header {
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .carousel-viewport {
+            overflow: hidden;
+            border-radius: 18px;
+            background: #fff;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 22px;
+            transition: transform 450ms cubic-bezier(.22,.9,.35,1);
+        }
+
+        .testimonial {
+            min-width: calc(100% - 22px);
+            background: #fafafa;
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            gap: 18px;
+            border: 1px solid #eee;
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #e5e5e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* للتأكد من أن الصورة تملأ الدائرة بشكل صحيح */
+            overflow: hidden; 
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rating {
+            color: #f6b100;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 18px;
+        }
+
+        .controls button {
+            padding: 10px 14px;
+            border: none;
+            background: #eee;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cfcfcf;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dot[aria-pressed="true"] {
+            background: #6c63ff;
+        }
+
+        .see-all {
+            text-align: center;
+            margin-top: 22px;
+        }
+
+        .see-all a {
+            padding: 10px 22px;
+            border-radius: 10px;
+            background: #b66b84; 
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .see-all a:hover {
+            background: #a45a72;
+        }
+
+        footer {
+            background: linear-gradient(to right, #143230, #536B53);
+            padding: 30px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-box">
+            <img src="imgs/logo.png" alt="AMARA Logo">
+            <h2>AMARA</h2>
+        </div>
+
+        <nav>
+            <a href="Home-pega.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="ServicesPage.html">Services</a>
+            <a href="Appointments.html">Appointments</a>
+        </nav>
+
+        <div class="auth-buttons">
+            <a href="logIn.html" class="btn-outline">Log In</a>
+            <a href="signUp.html" class="btn-primary">Sign Up</a>
+            <a href="adminLogIn.html" class="btn-admin">Admin</a>
+        </div>
+    </header>
+    <section class="hero">
+        <h1>AMARA BEAUTY SALON</h1>
+        <p>AMARA, beauty is more than a service — it’s an experience.</p>
+
+        <img src="imgs/beauty-animation.gif" class="center-gif" alt="Beauty GIF">
+
+        <a href="ServicesPage.html"><button>Book Your Experience</button></a>
+    </section>
+
+    <section class="about">
+        <img src="imgs/logo.png" alt="AMARA Logo">
+
+        <div class="about-text">
+            <h2>AMARA</h2>
+            <p>
+                We specialize in delivering high-end, precision-based beauty care,
+                from hair and skin treatments to makeup and nails.
+                Every detail is crafted with elegance and expertise.
+            </p>
+            <a href="ServicesPage.html"><button>Explore Our Services</button></a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2 class="services-title">Our Services</h2>
+
+        <div class="services-grid">
+            
+            <a href="ServiceBooking.html?name=Hair%20Styling&img=imgs/hair.jpg&price=150%20SAR" style="text-decoration:none;">
+                <div class="service-card">
+                    <img src="imgs/hair.jpg" alt="Hair Service">
+                    <h3>Hair Styling</h3>
+                </div>
+            </a>
+            
+            <a href="ServiceBooking.html?name=Makeup&img=imgs/makeup.jpg&price=200%20SAR" style="text-decoration:none;">
+                <div class="service-card">
+                    <img src="imgs/makeup.jpg" alt="Makeup Service">
+                    <h3>Makeup</h3>
+                </div>
+            </a>
+            
+            <a href="ServiceBooking.html?name=Nail%20Care&img=imgs/nails.jpg&price=100%20SAR" style="text-decoration:none;">
+                <div class="service-card">
+                    <img src="imgs/nails.jpg" alt="Nails Service">
+                    <h3>Nails</h3>
+                </div>
+            </a>
+        </div>
+    </section>
+
+   <section class="carousel-section">
+    <div class="carousel-wrap">
+
+        <div class="carousel-header">
+            <h2>Client Reviews</h2>
+            <p>Real experiences from our visitors</p>
+        </div>
+
+        <div class="carousel">
+            <div class="carousel-viewport" id="viewport">
+                <div class="carousel-track" id="track">
+
+                    <article class="testimonial">
+                        <div class="avatar">
+                            <img src="imgs/customer.jpg" alt="Client Avatar"> 
+                        </div> 
+                        <div>
+                            <blockquote>"The service was wonderful, and the staff's treatment was highly professional."</blockquote>
+                            <div class="meta"><span class="rating">★★★★★</span></div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial">
+                        <div class="avatar">
+                            <img src="imgs/customer.jpg" alt="Client Avatar">
+                        </div>
+                        <div>
+                            <blockquote>"Clean and fast work, this will definitely not be my last visit!"</blockquote>
+                            <div class="meta"><span class="rating">★★★★☆</span></div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial">
+                        <div class="avatar">
+                            <img src="imgs/customer.jpg" alt="Client Avatar">
+                        </div>
+                        <div>
+                            <blockquote>"A very comfortable place, and the hair result turned out better than expected."</blockquote>
+                            <div class="meta"><span class="rating">★★★★★</span></div>
+                        </div>
+                    </article>
+                    
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prevBtn">‹</button>
+                <button id="nextBtn">›</button>
+            </div>
+
+            <div class="dots" id="dots"></div>
+
+            <div class="see-all">
+                <a href="reviewPage.html">See All Reviews</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        © 2025 AMARA Beauty Salon — All Rights Reserved
+    </footer>
+
+<script>
+(function(){
+  const track = document.getElementById('track');
+  const slides = Array.from(track.children);
+  const dots = document.getElementById('dots');
+  let index = 0;
+  const gap = 22; 
+  function update(){
+        if (slides.length > 0) {
+        const slideWidth = slides[0].offsetWidth;
+        track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
+    }
+    Array.from(dots.children).forEach((d,i)=> d.setAttribute("aria-pressed", i===index));
+  }
+
+  function buildDots(){
+    dots.innerHTML="";
+    for(let i=0;i<slides.length;i++){
+      const b=document.createElement("button");
+      b.className="dot";
+      b.addEventListener("click",()=>{ index=i; update(); });
+      dots.appendChild(b);
+    }
+    update();
+  }
+
+  document.getElementById("nextBtn").onclick=()=>{ 
+    index = (index+1) % slides.length; 
+    update(); 
+  };
+  
+  document.getElementById("prevBtn").onclick=()=>{ 
+    index = (index-1+slides.length)%slides.length; 
+    update(); 
+  };
+  
+  // Auto-slide functionality restored
+  setInterval(()=>{ 
+      index = (index+1) % slides.length; 
+      update(); 
+  }, 3500);
+
+  buildDots();
+  // Ensure the script runs after the document is fully loaded
+  window.addEventListener('load', update);
+})();
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMARA — Services</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* تعريف الألوان لسهولة الوصول (من ملفات أخرى) */
+        :root {
+            --rose-dark: #b66b84;
+            --green-dark: #143230;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+
+            /* ✨ الخلفية الجديدة بدون تداخل */
+            background: linear-gradient(to bottom, #f4f3f3, #ffffff, #efefef);
+
+            color: #143230;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ⭐⭐⭐ HEADER CSS - تم توحيده من Home-pega.html ⭐⭐⭐ */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(to right, #EDC1D2, #C3C3C3);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-box img {
+            width: 55px; /* تم توحيد الحجم */
+            height: 55px;
+            object-fit: contain;
+        }
+
+        header h2 {
+            font-family: 'Cormorant', serif;
+            margin: 0;
+            font-size: 28px;
+            color: var(--green-dark); /* تم إضافة اللون */
+        }
+        
+        /* NAVIGATION CONTAINER - ALIGNED WITH LOGO */
+        nav {
+            text-align: left; 
+            margin-right: auto;
+            margin-left: 30px; 
+        }
+
+        header nav a {
+            margin: 0 15px; 
+            text-decoration: none;
+            color: var(--green-dark);
+            font-weight: 600; /* تم توحيد الوزن */
+            font-size: 17px;
+            font-family: 'Lato', sans-serif;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 3px;
+        }
+
+        header nav a:hover {
+            color: var(--rose-dark);  
+            border-bottom: 2px solid var(--rose-dark); 
+        }
+
+        /* NEW HEADER BUTTON STYLES START */
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--green-dark);
+            color: white !important;
+            border: 2px solid var(--green-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #536B53;
+            border-color: #536B53;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--green-dark) !important;
+            border: 2px solid var(--green-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--green-dark);
+            color: white !important;
+        }
+
+        .btn-admin {
+            background-color: transparent;
+            color: var(--rose-dark) !important;
+            border: 2px solid var(--rose-dark);
+        }
+
+        .btn-admin:hover {
+            background-color: var(--rose-dark);
+            color: white !important;
+        }
+        /* NEW HEADER BUTTON STYLES END */
+        /* ⭐⭐⭐ END HEADER CSS ⭐⭐⭐ */
+
+        /* PAGE TITLE */
+        h1 {
+            text-align: center;
+            font-family: 'Cormorant', serif;
+            color: #143230;
+            font-size: 46px;
+            margin-top: 70px;
+            margin-bottom: 30px;
+        }
+
+        /* SERVICE CARDS */
+        .services-container {
+            width: 90%;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #ffffffee;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        /* لتطبيق الـ hover effect على رابط البطاقة بالكامل */
+        .services-container a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .services-container a:hover .service-card {
+            transform: scale(1.05);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .service-card h2 {
+            margin-top: 12px;
+            font-size: 22px;
+            color: #143230;
+            font-family: 'Cormorant', serif;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(to right, #143230, #536B53);
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-box">
+        <img src="imgs/logo.png" alt="AMARA Logo">
+        <h2>AMARA</h2>
+    </div>
+
+    <nav>
+        <a href="Home-pega.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="ServicesPage.html">Services</a>
+        <a href="Appointments.html">Appointments</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="logIn.html" class="btn-outline">Log In</a>
+        <a href="signUp.html" class="btn-primary">Sign Up</a>
+        <a href="adminLogIn.html" class="btn-admin">Admin</a>
+    </div>
+</header>
+<h1>Our Services</h1>
+
+<div class="services-container">
+
+    <a href="ServiceBooking.html?name=Hair%20Styling&img=imgs/hair-service.jpg&price=150%20SAR">
+        <div class="service-card">
+            <img src="imgs/hair-service.jpg" alt="Hair">
+            <h2>Hair Styling</h2>
+        </div>
+    </a>
+
+    <a href="ServiceBooking.html?name=Makeup&img=imgs/makeup-service.jpg&price=200%20SAR">
+        <div class="service-card">
+            <img src="imgs/makeup-service.jpg" alt="Makeup">
+            <h2>Makeup</h2>
+        </div>
+    </a>
+
+    <a href="ServiceBooking.html?name=Nail%20Care&img=imgs/nails-service.jpg&price=100%20SAR">
+        <div class="service-card">
+            <img src="imgs/nails-service.jpg" alt="Nails">
+            <h2>Nail Care</h2>
+        </div>
+    </a>
+
+    <a href="ServiceBooking.html?name=Skin%20Care&img=imgs/skincare-service.jpg&price=250%20SAR">
+        <div class="service-card">
+            <img src="imgs/skincare-service.jpg" alt="Skincare">
+            <h2>Skin Care</h2>
+        </div>
+    </a>
+
+    <a href="ServiceBooking.html?name=Lashes&img=imgs/lashes-service.jpg&price=180%20SAR">
+        <div class="service-card">
+            <img src="imgs/lashes-service.jpg" alt="Lashes">
+            <h2>Lashes</h2>
+        </div>
+    </a>
+
+    <a href="ServiceBooking.html?name=Eyebrows&img=imgs/brows-service.jpg&price=50%20SAR">
+        <div class="service-card">
+            <img src="imgs/brows-service.jpg" alt="Brows">
+            <h2>Eyebrows</h2>
+        </div>
+    </a>
+
+    <a href="ServiceBooking.html?name=Massage&img=imgs/massage.jpg&price=300%20SAR">
+        <div class="service-card">
+            <img src="imgs/massage.jpg" alt="Massage">
+            <h2>Massage</h2>
+        </div>
+    </a>
+
+    <a href="ServiceBooking.html?name=Hair%20Treatment&img=imgs/haircare2.jpg&price=350%20SAR">
+        <div class="service-card">
+            <img src="imgs/haircare2.jpg" alt="Hair Treatment">
+            <h2>Hair Treatment</h2>
+        </div>
+    </a>
+
+    <a href="ServiceBooking.html?name=Bridal%20Session&img=imgs/bridal.jpg&price=1500%20SAR">
+        <div class="service-card">
+            <img src="imgs/bridal.jpg" alt="Bridal">
+            <h2>Bridal Session</h2>
+        </div>
+    </a>
+
+</div>
+
+<footer>
+    © 2025 AMARA Salon — All Rights Reserved
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>

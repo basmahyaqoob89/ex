@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMARA — Appointments</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --rose-dark: #b66b84;
+            --green-dark: #143230;
+            --gray-bg: #f6f6f8; /* تم تعريف اللون للتوحيد */
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #ECECEC; /* تم الحفاظ على الخلفية الأصلية */
+            color: var(--green-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ⭐⭐⭐ HEADER CSS - تم توحيده من Home-pega.html ⭐⭐⭐ */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(to right, #EDC1D2, #C3C3C3);
+        }
+
+        /* LOGO BOX */
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-box img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        header h2 {
+            font-family: 'Cormorant', serif;
+            margin: 0;
+            font-size: 28px;
+            color: var(--green-dark);
+        }
+        
+        /* NAVIGATION CONTAINER - ALIGNED WITH LOGO */
+        nav {
+            text-align: left; 
+            margin-right: auto;
+            margin-left: 30px; 
+        }
+
+        header nav a {
+            margin: 0 15px; 
+            text-decoration: none;
+            color: var(--green-dark);
+            font-weight: 600; 
+            font-size: 17px;
+            font-family: 'Lato', sans-serif;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 3px;
+        }
+
+        header nav a:hover {
+            color: var(--rose-dark); 
+            border-bottom: 2px solid var(--rose-dark); 
+        }
+
+        /* NEW HEADER BUTTON STYLES START */
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--green-dark);
+            color: white !important;
+            border: 2px solid var(--green-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #536B53;
+            border-color: #536B53;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--green-dark) !important;
+            border: 2px solid var(--green-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--green-dark);
+            color: white !important;
+        }
+
+        .btn-admin {
+            background-color: transparent;
+            color: var(--rose-dark) !important;
+            border: 2px solid var(--rose-dark);
+        }
+
+        .btn-admin:hover {
+            background-color: var(--rose-dark);
+            color: white !important;
+        }
+        /* NEW HEADER BUTTON STYLES END */
+        /* ⭐⭐⭐ END HEADER CSS ⭐⭐⭐ */
+
+
+        /* APPOINTMENTS PAGE STYLES (الواجهة الجديدة) */
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto 60px;
+            padding: 0 20px;
+            flex-grow: 1; /* للسماح للفوتر بالنزول للأسفل */
+        }
+
+        .page-title {
+            font-family: 'Cormorant', serif;
+            font-size: 44px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--green-dark);
+        }
+
+        /* تصميم كارد الحجز */
+        .appointment-card {
+            background: var(--white);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 6px solid var(--rose-dark);
+            flex-wrap: wrap;
+        }
+
+        .appointment-info {
+            flex-grow: 1;
+        }
+
+        .appointment-info h3 {
+            font-family: 'Cormorant', serif;
+            font-size: 24px;
+            margin: 0;
+            color: var(--green-dark);
+        }
+
+        .appointment-info p {
+            font-size: 15px;
+            color: #555;
+            margin: 5px 0 0;
+        }
+
+        .date-time {
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: var(--gray-bg);
+            border: 1px solid #eee;
+            margin: 10px 20px;
+        }
+
+        .date-time .date {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--rose-dark);
+        }
+
+        .date-time .time {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .actions a {
+            text-decoration: none;
+            background: var(--rose-dark);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .actions a:hover {
+            background: #a45a72;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: linear-gradient(to right, #143230, #536B53);
+            padding: 22px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        @media (max-width: 600px) {
+            .appointment-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .date-time {
+                margin: 15px 0;
+                width: 100%;
+            }
+            .actions {
+                width: 100%;
+                text-align: center;
+            }
+            .actions a {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-box">
+        <img src="imgs/logo.png" alt="AMARA Logo">
+        <h2>AMARA</h2>
+    </div>
+
+    <nav>
+        <a href="Home-pega.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="ServicesPage.html">Services</a>
+        <a href="Appointments.html">Appointments</a>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="logIn.html" class="btn-outline">Log In</a>
+        <a href="signUp.html" class="btn-primary">Sign Up</a>
+        <a href="adminLogIn.html" class="btn-admin">Admin</a>
+    </div>
+</header>
+<div class="container">
+    <h1 class="page-title">Upcoming Appointments</h1>
+
+    <div class="appointment-card">
+        <div class="appointment-info">
+            <h3>Hair Styling & Color</h3>
+            <p>Stylist: Maria | Price: 350 SAR</p>
+        </div>
+        <div class="date-time">
+            <div class="date">Friday, Dec 20</div>
+            <div class="time">4:00 PM</div>
+        </div>
+        <div class="actions">
+            <a href="#">Cancel Appointment</a>
+        </div>
+    </div>
+
+    <div class="appointment-card">
+        <div class="appointment-info">
+            <h3>Full Makeup Session</h3>
+            <p>Artist: Layla | Price: 200 SAR</p>
+        </div>
+        <div class="date-time">
+            <div class="date">Saturday, Dec 21</div>
+            <div class="time">10:30 AM</div>
+        </div>
+        <div class="actions">
+            <a href="#">Cancel Appointment</a>
+        </div>
+    </div>
+
+    </div>
+
+<footer>
+    © 2025 AMARA Salon — All Rights Reserved
+</footer>
+
+<script src="main.js"></script>
+
+
+</body>
+</html>

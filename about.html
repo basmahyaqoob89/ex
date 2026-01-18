@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMARA Salon — About Us</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #C3C3C3, #EDC1D2, #536B53, #143230);
+            color: #143230;
+        }
+
+        /* ⭐⭐⭐ HEADER CSS - تم توحيده من Home-pega.html ⭐⭐⭐ */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(to right, #EDC1D2, #C3C3C3);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-box img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        header h2 {
+            font-family: 'Cormorant', serif;
+            margin: 0;
+            font-size: 28px;
+            color: #143230;
+        }
+        
+        /* NAVIGATION CONTAINER - ALIGNED WITH LOGO */
+        nav {
+            text-align: left; 
+            margin-right: auto;
+            margin-left: 30px; 
+        }
+
+        header nav a {
+            margin: 0 15px; 
+            text-decoration: none;
+            color: #143230;
+            font-weight: 600; 
+            font-size: 17px;
+            font-family: 'Lato', sans-serif;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 3px;
+        }
+
+        header nav a:hover {
+            color: #b66b84;  
+            border-bottom: 2px solid #b66b84; 
+        }
+
+        /* NEW HEADER BUTTON STYLES START */
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .auth-buttons a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: #143230;
+            color: white !important;
+            border: 2px solid #143230;
+        }
+
+        .btn-primary:hover {
+            background-color: #536B53;
+            border-color: #536B53;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #143230 !important;
+            border: 2px solid #143230;
+        }
+
+        .btn-outline:hover {
+            background-color: #143230;
+            color: white !important;
+        }
+
+        .btn-admin {
+            background-color: transparent;
+            color: #b66b84 !important;
+            border: 2px solid #b66b84;
+        }
+
+        .btn-admin:hover {
+            background-color: #b66b84;
+            color: white !important;
+        }
+        /* NEW HEADER BUTTON STYLES END */
+        /* ⭐⭐⭐ END HEADER CSS ⭐⭐⭐ */
+
+        /* HERO - (Original Styles) */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(to bottom, #536B53, #143230);
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-family: 'Cormorant', serif;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #e8e8e8;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            padding: 70px 20px;
+            background: #ffffffee;
+        }
+
+        .about-box {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .about-box img {
+            width: 300px;
+            height: 300px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-family: 'Cormorant', serif;
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .about-text p {
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 450px;
+        }
+
+        /* WHAT WE OFFER */
+        .services-info {
+            background: #ffffffd3;
+            text-align: center;
+            padding: 70px 30px;
+        }
+
+        .services-info h2 {
+            font-family: 'Cormorant', serif;
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .services-info p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* CONTACT INFO */
+        .contact-section {
+            padding: 60px 20px;
+            background: #143230;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-family: 'Cormorant', serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .contact-section p {
+            font-size: 17px;
+            margin: 8px 0;
+        }
+
+        .contact-section a {
+            color: #EDC1D2;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(to right, #143230, #536B53);
+            padding: 25px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-box">
+        <img src="imgs/logo.png" alt="AMARA Logo">
+        <h2>AMARA</h2>
+    </div>
+
+    <nav>
+        <a href="Home-pega.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="ServicesPage.html">Services</a>
+        <a href="Appointments.html">Appointments</a> 
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="logIn.html" class="btn-outline">Log In</a>
+        <a href="signUp.html" class="btn-primary">Sign Up</a>
+        <a href="adminLogIn.html" class="btn-admin">Admin</a>
+    </div>
+</header>
+<section class="hero">
+    <h1>About AMARA Salon</h1>
+    <p>Where beauty, elegance, and luxury meet.</p>
+</section>
+
+<section class="about-section">
+    <div class="about-box">
+
+        <img src="imgs/about-photo.jpg" alt="Salon Interior">
+
+        <div class="about-text">
+            <h2>Who We Are</h2>
+            <p>
+                AMARA is a modern beauty salon offering premium services crafted
+                with care, precision, and passion. Our mission is to provide an experience
+                that blends relaxation, luxury, and flawless results.
+            </p>
+
+            <p>
+                Founded as a Computer Science graduation project supervised by
+                Dr. Balsam Khoja, AMARA reflects both technical excellence and artistic creativity.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="services-info">
+    <h2>What We Offer</h2>
+    <p>
+        Our salon provides a wide range of services including hair styling,
+        makeup artistry, nail treatments, skincare sessions, and relaxation packages.
+        Every service is performed with high standards and attention to detail,
+        ensuring our clients leave feeling confident and refreshed.
+    </p>
+</section>
+
+<section class="contact-section">
+    <h2>Contact Us</h2>
+
+    <p>📍 Location: Makkah, Saudi Arabia</p>
+    <p>📞 Phone: <a href="tel:+966500000000">+966 50 000 0000</a></p>
+    <p>✉️ Email: <a href="mailto:amara@salon.com">amara@salon.com</a></p>
+    <p>🕒 Working Hours: 2 PM – 10 PM</p>
+
+</section>
+
+<script src="main.js"></script>
+
+<footer>
+    © 2025 AMARA Salon — All Rights Reserved.
+</footer>
+
+</body>
+</html>

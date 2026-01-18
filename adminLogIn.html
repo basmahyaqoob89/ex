@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AMARA — Admin Log In</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; font-family: 'Montserrat', sans-serif; }
+        body { background: linear-gradient(to bottom, #143230, #536B53); }
+        .center-wrapper { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; display: flex; justify-content: center; }
+        .login { background: white; width: 430px; padding: 45px 40px; border-radius: 25px; text-align: center; box-shadow: 0 8px 25px #00000020; }
+        .logo-box img { width: 70px; margin-bottom: 15px; }
+        h2 { color: #143230; font-family: 'Cormorant', serif; font-size: 34px; margin-bottom: 30px; }
+        label { display: block; text-align: left; margin: 15px 0 8px; font-size: 15px; font-weight: 600; color: #143230; }
+        .input-field { width: 100%; padding: 12px 18px; border: 2px solid #ccc; border-radius: 10px; font-size: 16px; margin-bottom: 20px; outline: none; box-sizing: border-box; }
+        .input-field:focus { border-color: #b66b84; box-shadow: 0 0 6px #b66b8455; }
+        button { width: 100%; padding: 15px; border-radius: 12px; background-color: #b66b84; color: white; border: none; font-size: 17px; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+        button:hover { background-color: #a45a72; }
+        p { margin-top: 18px; font-size: 14px; color: #333; }
+        p a { color: #143230; font-weight: 600; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="center-wrapper">
+    <div class="login">
+        <div class="logo-box"><img src="imgs/logo.png" alt="AMARA Logo"></div>
+        <h2>Admin Log In</h2>
+        <form>
+            <label for="username">Username</label>
+            <input class="input-field" type="text" id="username" placeholder="Admin Username" required>
+
+            <label for="password">Password</label>
+            <input class="input-field" type="password" id="password" placeholder="Admin Password" required>
+
+            <button type="submit">Log In</button>
+        </form>
+        <p>Return to <a href="Home-pega.html">Homepage</a></p>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Booking Confirmation – AMARA</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* خلفية مطابقة لستايل الموقع */
+      background: linear-gradient(to bottom, #f4f3f3, #ffffff, #efefef);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .card {
+      background: linear-gradient(to bottom, #e7b7c8, #dbc5cd, #c8cdca);
+      padding: 45px;
+      width: 440px;
+      text-align: center;
+      border-radius: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      animation: fadeIn 0.7s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-icon {
+      font-size: 65px;
+      color: #143230;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: "Cormorant", serif;
+      font-size: 34px;
+      color: #143230;
+    }
+
+    p {
+      margin: 15px 0 25px;
+      color: #143230;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: block;
+      width: 85%;
+      margin: 10px auto;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 16px;
+      font-family: 'Lato', sans-serif;
+      border: 1px solid #143230;
+      color: #143230;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #143230;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="success-icon">✓</div>
+
+  <h2>Your Booking is Confirmed</h2>
+
+  <p>
+    Thank you for choosing AMARA.<br>
+    Your appointment has been successfully booked.
+  </p>
+
+  <a href="Home-pega.html" class="btn">Back to Home</a>
+  <a href="ServicesPage.html" class="btn">View More Services</a>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
